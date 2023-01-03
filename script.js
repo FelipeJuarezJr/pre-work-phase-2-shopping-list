@@ -10,7 +10,7 @@ function initShoppingList() {
     });
 }
 
-/* Could not get this to return anything on console.log ("Event: ", event); */
+
 function handleItemForm(event, formRef)   {
     if(event.preventDefault)    {
         event.preventDefault();
@@ -36,17 +36,18 @@ function addItemToShoppingList()    {
 }
 
 function setDeleteButtonEvent(id)  {
-    let deleteButton = document.getElementById("button" +id);
+    let deleteButton = document.getElementById("button"+id);
     deleteButton.addEventListener("click", () =>    {
         removeListItem(id);
     });
 }
 
-/* Code beneath this line is non functional */
-/* I was able to get code to return the literal values of "itemName - itemAmount", but not the typed and number selected */
+
 function createListItemHtml(itemName, itemAmount, id)   {
-    return '<li id="item${id}">${itemName} - ${itemAmount}</li>' +
-        '<button id="button${id}" type="button">Delete Item</button>';
+    return `<li id="item${id}">
+                ${itemName} - ${itemAmount}            
+                <button id="button${id}" type="button">Delete Item</button>
+            </li>`;
 }
 
 function removeListItem(id)   {
@@ -61,4 +62,6 @@ function getRandomInt(min, max)	{
     return Math.floor(Math.random() * (max - min)) + min;
 
 }
+
+/*** DONE ***/
 
